@@ -1,0 +1,22 @@
+scenario AddSpringBootKotlinMavenProject
+
+let project_base_directory = "demo"
+
+given
+   Empty
+
+when
+  AddSpringBootKotlinMavenProject
+
+then
+  fileExists { project_base_directory + "/src/main/kotlin/com/example/Application.kt" }
+    and fileContains { project_base_directory + "/src/main/kotlin/com/example/Application.kt" } "class Application"
+    and fileExists { project_base_directory + "/src/main/resources/application.properties" }
+    and fileExists { project_base_directory + "/src/test/kotlin/com/example/ApplicationTests.kt" }
+    and fileContains { project_base_directory + "/src/test/kotlin/com/example/ApplicationTests.kt" } "class ApplicationTest"
+    and fileExists { project_base_directory + "/pom.xml" }
+    and fileContains { project_base_directory + "/pom.xml" } "1.5.1.RELEASE"
+    and fileContains { project_base_directory + "/pom.xml" } "0.0.1-SNAPSHOT"
+    and fileContains { project_base_directory + "/pom.xml" } "demo"
+    and fileContains { project_base_directory + "/pom.xml" } "com.example"
+    and fileContains { project_base_directory + "/pom.xml" } "Demo project for Spring Boot"

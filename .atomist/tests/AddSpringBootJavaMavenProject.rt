@@ -1,0 +1,22 @@
+scenario AddSpringBootJavaMavenProject
+
+let project_base_directory = "demo"
+
+given
+   Empty
+
+when
+  AddSpringBootJavaMavenProject
+
+then
+  fileExists { project_base_directory + "/src/main/java/com/example/Application.java" }
+    and fileContains { project_base_directory + "/src/main/java/com/example/Application.java" } "public class Application"
+    and fileExists { project_base_directory + "/src/main/resources/application.properties" }
+    and fileExists { project_base_directory + "/src/test/java/com/example/ApplicationTests.java" }
+    and fileContains { project_base_directory + "/src/test/java/com/example/ApplicationTests.java" } "public class ApplicationTest"
+    and fileExists { project_base_directory + "/pom.xml" }
+    and fileContains { project_base_directory + "/pom.xml" } "1.5.1.RELEASE"
+    and fileContains { project_base_directory + "/pom.xml" } "0.0.1-SNAPSHOT"
+    and fileContains { project_base_directory + "/pom.xml" } "demo"
+    and fileContains { project_base_directory + "/pom.xml" } "com.example"
+    and fileContains { project_base_directory + "/pom.xml" } "Demo project for Spring Boot"

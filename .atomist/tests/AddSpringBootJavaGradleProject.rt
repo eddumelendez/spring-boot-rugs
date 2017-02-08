@@ -1,0 +1,43 @@
+scenario AddSpringBootJavaGradleProject
+
+let project_base_directory = "demo"
+
+given
+   Empty
+
+when
+  AddSpringBootJavaGradleProject
+
+then
+  fileExists { project_base_directory + "/src/main/java/com/example/Application.java" }
+    and fileContains { project_base_directory + "/src/main/java/com/example/Application.java" } "public class Application"
+    and fileExists { project_base_directory + "/src/main/resources/application.properties" }
+    and fileExists { project_base_directory + "/src/test/java/com/example/ApplicationTests.java" }
+    and fileContains { project_base_directory + "/src/test/java/com/example/ApplicationTests.java" } "public class ApplicationTest"
+    and fileExists { project_base_directory + "/build.gradle" }
+    and fileContains { project_base_directory + "/build.gradle" } "1.5.1.RELEASE"
+    and fileContains { project_base_directory + "/build.gradle" } "0.0.1-SNAPSHOT"
+    and fileContains { project_base_directory + "/build.gradle" } "demo"
+
+scenario AddSpringBootJavaGradleProject 2
+
+let project_base_directory = "demo"
+let artifact_id = "java-demo"
+let parent_version = "1.5.0.RELEASE"
+
+given
+   Empty
+
+when
+  AddSpringBootJavaGradleProject
+
+then
+  fileExists { project_base_directory + "/src/main/java/com/example/Application.java" }
+    and fileContains { project_base_directory + "/src/main/java/com/example/Application.java" } "public class Application"
+    and fileExists { project_base_directory + "/src/main/resources/application.properties" }
+    and fileExists { project_base_directory + "/src/test/java/com/example/ApplicationTests.java" }
+    and fileContains { project_base_directory + "/src/test/java/com/example/ApplicationTests.java" } "public class ApplicationTest"
+    and fileExists { project_base_directory + "/build.gradle" }
+    and fileContains { project_base_directory + "/build.gradle" } "1.5.0.RELEASE"
+    and fileContains { project_base_directory + "/build.gradle" } "0.0.1-SNAPSHOT"
+    and fileContains { project_base_directory + "/build.gradle" } "java-demo"

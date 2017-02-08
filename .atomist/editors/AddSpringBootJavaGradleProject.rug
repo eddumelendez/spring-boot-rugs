@@ -1,0 +1,59 @@
+@description "adds a new Spring Boot project in a subdirectory of an existing project"
+@tag "java"
+@tag "spring"
+@tag "spring-boot"
+editor AddSpringBootJavaGradleProject
+
+@displayName "Base Directory for new Project"
+@description "base directory underneath which the new project will be added"
+@validInput "a valid directory name"
+@minLength 1
+param project_base_directory: @any
+
+
+@displayName "Project Name"
+@description "name of your new project"
+@validInput "a valid GitHub repo name containing only alphanumeric, ., -, and _ characters and 21 characters or less to avoid Slack truncating the name when creating a channel for the repo"
+@minLength 1
+@maxLength 21
+@default "demo"
+param project_name: @project_name
+
+@displayName "Project Description"
+@description "short descriptive text describing the new project"
+@minLength 1
+@validInput "free text"
+@optional
+@default "Demo project for Spring Boot"
+param description: @any
+
+@displayName "Version"
+@description "spring boot's version, e.g., 1.5.1.RELEASE"
+@validInput "a valid spring boot's version"
+@optional
+@default "1.5.1.RELEASE"
+param parent_version: @any
+
+@displayName "Group ID"
+@description "Maven group identifier, often used to provide a namespace for your project, e.g., com.pany.team"
+@validInput "a valid Maven group ID, which starts with a letter, -, or _ and contains only alphanumeric, -, and _ characters and may having leading period separated identifiers starting with letters or underscores and containing only alphanumeric and _ characters."
+@optional
+@default "com.example"
+param group_id: @group_id
+
+@displayName "Maven Artifact ID"
+@description "Maven artifact identifier, i.e., the name of the jar without the version, it is often the same as the project name"
+@validInput "a valid Maven artifact ID, which starts with a lower-case letter and contains only alphanumeric, -, and _ characters"
+@minLength 1
+@maxLength 21
+@optional
+@default "demo"
+param artifact_id: @artifact_id
+
+with Project
+  do copyEditorBackingFilesWithNewRelativePath "default-java-gradle-project" project_base_directory
+
+with File begin
+  do replace "$boot_version" parent_version
+  do replace "$artifact_id" artifact_id
+end

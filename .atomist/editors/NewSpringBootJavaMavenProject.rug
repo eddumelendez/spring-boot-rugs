@@ -2,7 +2,7 @@
 @tag "java"
 @tag "spring"
 @tag "spring-boot"
-editor AddSpringBootKotlinGradleProject
+editor NewSpringBootJavaMavenProject
 
 @displayName "Base Directory for new Project"
 @description "base directory underneath which the new project will be added"
@@ -50,10 +50,15 @@ param group_id: @group_id
 @default "demo"
 param artifact_id: @artifact_id
 
-with Project
-  do copyEditorBackingFilesWithNewRelativePath "default-kotlin-gradle-project" project_base_directory
+let pathToPom = { "/" + project_base_directory + "/pom.xml" }
 
-with File begin
-  do replace "$boot_version" parent_version
-  do replace "$artifact_id" artifact_id
+with Project
+  do copyEditorBackingFilesWithNewRelativePath "default-java-maven-project" project_base_directory
+
+with Pom when path = { project_base_directory + "/pom.xml" } begin
+  do addOrReplaceNode "/project/parent/artifactId[text() = 'spring-boot-starter-parent']/.." "/project/parent/artifactId[text() = 'spring-boot-starter-parent']/version" "version" "<version>$parent_version</version>"
+  do setArtifactId artifact_id
+  do setGroupId group_id
+  do setProjectName project_name
+  do setDescription description
 end

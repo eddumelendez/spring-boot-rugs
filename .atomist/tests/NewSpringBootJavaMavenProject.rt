@@ -1,4 +1,4 @@
-scenario AddSpringBootJavaMavenProject
+scenario NewSpringBootJavaMavenProject
 
 let project_base_directory = "demo"
 
@@ -6,7 +6,7 @@ given
    Empty
 
 when
-  AddSpringBootJavaMavenProject
+  NewSpringBootJavaMavenProject
 
 then
   fileExists { project_base_directory + "/src/main/java/com/example/Application.java" }

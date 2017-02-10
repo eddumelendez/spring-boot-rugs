@@ -2,7 +2,7 @@
 @tag "java"
 @tag "spring"
 @tag "spring-boot"
-editor AddSpringBootKotlinGradleKtsProject
+editor NewSpringBootKotlinGradleKtsProject
 
 @displayName "Base Directory for new Project"
 @description "base directory underneath which the new project will be added"

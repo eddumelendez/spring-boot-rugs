@@ -1,4 +1,4 @@
-scenario AddSpringBootJavaGradleProject
+scenario NewSpringBootJavaGradleProject
 
 let project_base_directory = "demo"
 
@@ -6,7 +6,7 @@ given
    Empty
 
 when
-  AddSpringBootJavaGradleProject
+  NewSpringBootJavaGradleProject
 
 then
   fileExists { project_base_directory + "/src/main/java/com/example/Application.java" }
@@ -19,7 +19,7 @@ then
     and fileContains { project_base_directory + "/build.gradle" } "0.0.1-SNAPSHOT"
     and fileContains { project_base_directory + "/build.gradle" } "demo"
 
-scenario AddSpringBootJavaGradleProject 2
+scenario NewSpringBootJavaGradleProject 2
 
 let project_base_directory = "demo"
 let artifact_id = "java-demo"
@@ -29,7 +29,7 @@ given
    Empty
 
 when
-  AddSpringBootJavaGradleProject
+  NewSpringBootJavaGradleProject
 
 then
   fileExists { project_base_directory + "/src/main/java/com/example/Application.java" }

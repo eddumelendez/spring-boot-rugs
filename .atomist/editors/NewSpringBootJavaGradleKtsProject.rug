@@ -2,7 +2,7 @@
 @tag "java"
 @tag "spring"
 @tag "spring-boot"
-editor AddSpringBootGroovyGradleProject
+editor NewSpringBootJavaGradleKtsProject
 
 @displayName "Base Directory for new Project"
 @description "base directory underneath which the new project will be added"
@@ -51,9 +51,10 @@ param group_id: @group_id
 param artifact_id: @artifact_id
 
 with Project
-  do copyEditorBackingFilesWithNewRelativePath "default-groovy-gradle-project" project_base_directory
+  do copyEditorBackingFilesWithNewRelativePath "default-java-gradlekts-project" project_base_directory
 
 with File begin
   do replace "$boot_version" parent_version
   do replace "$artifact_id" artifact_id
+  do replace "$project_base_directory" project_base_directory
 end

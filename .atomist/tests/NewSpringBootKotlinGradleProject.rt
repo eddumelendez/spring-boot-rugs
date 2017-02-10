@@ -1,4 +1,4 @@
-scenario AddSpringBootKotlinGradleKtsProject
+scenario NewSpringBootKotlinGradleProject
 
 let project_base_directory = "demo"
 
@@ -6,7 +6,7 @@ given
    Empty
 
 when
-  AddSpringBootKotlinGradleKtsProject
+  NewSpringBootKotlinGradleProject
 
 then
   fileExists { project_base_directory + "/src/main/kotlin/com/example/Application.kt" }
@@ -14,12 +14,12 @@ then
     and fileExists { project_base_directory + "/src/main/resources/application.properties" }
     and fileExists { project_base_directory + "/src/test/kotlin/com/example/ApplicationTests.kt" }
     and fileContains { project_base_directory + "/src/test/kotlin/com/example/ApplicationTests.kt" } "class ApplicationTest"
-    and fileExists { project_base_directory + "/build.gradle.kts" }
-    and fileContains { project_base_directory + "/build.gradle.kts" } "1.5.1.RELEASE"
-    and fileContains { project_base_directory + "/build.gradle.kts" } "0.0.1-SNAPSHOT"
-    and fileContains { project_base_directory + "/build.gradle.kts" } "demo"
+    and fileExists { project_base_directory + "/build.gradle" }
+    and fileContains { project_base_directory + "/build.gradle" } "1.5.1.RELEASE"
+    and fileContains { project_base_directory + "/build.gradle" } "0.0.1-SNAPSHOT"
+    and fileContains { project_base_directory + "/build.gradle" } "demo"
 
-scenario AddSpringBootKotlinGradleKtsProject 2
+scenario NewSpringBootKotlinGradleProject
 
 let project_base_directory = "demo"
 let artifact_id = "kotlin-demo"
@@ -29,7 +29,7 @@ given
    Empty
 
 when
-  AddSpringBootKotlinGradleKtsProject
+  NewSpringBootKotlinGradleProject
 
 then
   fileExists { project_base_directory + "/src/main/kotlin/com/example/Application.kt" }
@@ -37,9 +37,7 @@ then
     and fileExists { project_base_directory + "/src/main/resources/application.properties" }
     and fileExists { project_base_directory + "/src/test/kotlin/com/example/ApplicationTests.kt" }
     and fileContains { project_base_directory + "/src/test/kotlin/com/example/ApplicationTests.kt" } "class ApplicationTest"
-    and fileExists { project_base_directory + "/build.gradle.kts" }
-    and fileContains { project_base_directory + "/build.gradle.kts" } "1.5.0.RELEASE"
-    and fileContains { project_base_directory + "/build.gradle.kts" } "0.0.1-SNAPSHOT"
-    and fileContains { project_base_directory + "/build.gradle.kts" } "kotlin-demo"
-    and fileExists { project_base_directory + "/settings.gradle" }
-    and fileContains { project_base_directory + "/settings.gradle" } "demo"
+    and fileExists { project_base_directory + "/build.gradle" }
+    and fileContains { project_base_directory + "/build.gradle" } "1.5.0.RELEASE"
+    and fileContains { project_base_directory + "/build.gradle" } "0.0.1-SNAPSHOT"
+    and fileContains { project_base_directory + "/build.gradle" } "kotlin-demo"

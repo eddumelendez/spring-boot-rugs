@@ -1,4 +1,4 @@
-scenario AddSpringBootKotlinMavenProject
+scenario NewSpringBootGroovyMavenProject
 
 let project_base_directory = "demo"
 
@@ -6,14 +6,14 @@ given
    Empty
 
 when
-  AddSpringBootKotlinMavenProject
+  NewSpringBootGroovyMavenProject
 
 then
-  fileExists { project_base_directory + "/src/main/kotlin/com/example/Application.kt" }
-    and fileContains { project_base_directory + "/src/main/kotlin/com/example/Application.kt" } "class Application"
+  fileExists { project_base_directory + "/src/main/groovy/com/example/Application.groovy" }
+    and fileContains { project_base_directory + "/src/main/groovy/com/example/Application.groovy" } "class Application"
     and fileExists { project_base_directory + "/src/main/resources/application.properties" }
-    and fileExists { project_base_directory + "/src/test/kotlin/com/example/ApplicationTests.kt" }
-    and fileContains { project_base_directory + "/src/test/kotlin/com/example/ApplicationTests.kt" } "class ApplicationTest"
+    and fileExists { project_base_directory + "/src/test/groovy/com/example/ApplicationTests.groovy" }
+    and fileContains { project_base_directory + "/src/test/groovy/com/example/ApplicationTests.groovy" } "class ApplicationTest"
     and fileExists { project_base_directory + "/pom.xml" }
     and fileContains { project_base_directory + "/pom.xml" } "1.5.1.RELEASE"
     and fileContains { project_base_directory + "/pom.xml" } "0.0.1-SNAPSHOT"

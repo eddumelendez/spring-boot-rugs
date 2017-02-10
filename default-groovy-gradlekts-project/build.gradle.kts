@@ -1,9 +1,10 @@
 import org.gradle.jvm.tasks.Jar
 
 buildscript {
-    ext {
-        val springBootVersion = "$boot_version"
-    }
+    val kotlinVersion = "1.0.6"
+    val springBootVersion = "$boot_version"
+    extra["kotlinVersion"] = kotlinVersion
+    
     repositories {
         mavenCentral()
     }

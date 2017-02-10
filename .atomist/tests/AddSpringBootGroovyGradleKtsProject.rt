@@ -41,3 +41,5 @@ then
     and fileContains { project_base_directory + "/build.gradle.kts" } "1.5.0.RELEASE"
     and fileContains { project_base_directory + "/build.gradle.kts" } "0.0.1-SNAPSHOT"
     and fileContains { project_base_directory + "/build.gradle.kts" } "groovy-demo"
+    and fileExists { project_base_directory + "/settings.gradle" }
+    and fileContains { project_base_directory + "/settings.gradle" } "demo"

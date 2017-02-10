@@ -56,4 +56,5 @@ with Project
 with File begin
   do replace "$boot_version" parent_version
   do replace "$artifact_id" artifact_id
+  do replace "$project_base_directory" project_base_directory
 end

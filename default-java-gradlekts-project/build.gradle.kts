@@ -1,14 +1,16 @@
 import org.gradle.jvm.tasks.Jar
 
 buildscript {
-    ext {
-        val springBootVersion = "$boot_version"
-    }
+    val kotlinVersion = "1.0.6"
+    val springBootVersion = "$boot_version"
+    extra["kotlinVersion"] = kotlinVersion
+
     repositories {
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
 

@@ -2,6 +2,8 @@
 @tag "java"
 @tag "spring"
 @tag "spring-boot"
+@tag "java"
+@tag "gradlekts"
 editor NewSpringBootJavaGradleKtsProject
 
 @displayName "Base Directory for new Project"

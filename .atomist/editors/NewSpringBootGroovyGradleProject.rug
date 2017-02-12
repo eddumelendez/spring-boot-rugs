@@ -2,6 +2,8 @@
 @tag "java"
 @tag "spring"
 @tag "spring-boot"
+@tag "groovy"
+@tag "gradle"
 editor NewSpringBootGroovyGradleProject
 
 @displayName "Base Directory for new Project"

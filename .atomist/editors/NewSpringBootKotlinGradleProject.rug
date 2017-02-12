@@ -2,6 +2,8 @@
 @tag "java"
 @tag "spring"
 @tag "spring-boot"
+@tag "kotlin"
+@tag "gradle"
 editor NewSpringBootKotlinGradleProject
 
 @displayName "Base Directory for new Project"

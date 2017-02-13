@@ -56,6 +56,6 @@ with Project
   do copyEditorBackingFilesWithNewRelativePath "default-groovy-gradle-project" project_base_directory
 
 with File begin
-  do replace "$boot_version" parent_version
-  do replace "$artifact_id" artifact_id
+  do replace "1.5.1.RELEASE" parent_version
+  do replace "default-groovy-gradle-project" artifact_id
 end
